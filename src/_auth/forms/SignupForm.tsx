@@ -13,9 +13,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { SignupValidation } from "@/lib/validation";
+import Loader from "@/components/shared/loader";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
-  const isLoading = true;
+  const isLoading = false;
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignupValidation>>({
@@ -106,13 +108,27 @@ const SignupForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="shad-button_primary flex">
+          <Button
+            type="submit"
+            className="shad-button_primary flex-col gap-5 w-full mt-4"
+          >
             {isLoading ? (
-              <div className="flex-center gap-2 ">Loading ...</div>
+              <div className="flex-center gap-2 ">
+                <Loader /> Loading ...
+              </div>
             ) : (
               "Sign up"
             )}
           </Button>
+          <p className="text-small-regular text-light-2 text-center mt-2">
+            Alreadt have an account ?
+            <Link
+              to="/sign-in"
+              className="text-primary text-primary-500 text-small-semibold ml-1"
+            >
+              Log in
+            </Link>
+          </p>
         </form>
       </div>
     </Form>
