@@ -8,6 +8,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
+import { useToast } from "@/components/ui/use-toast";
+
 import { Input } from "@/components/ui/input";
 
 import { Button } from "@/components/ui/button";
@@ -18,6 +21,8 @@ import { Link } from "react-router-dom";
 import { createUserAccount } from "@/lib/appwrite/api";
 
 const SignupForm = () => {
+  const { toast } = useToast();
+
   const isLoading = false;
 
   // 1. Define your form.
@@ -37,7 +42,11 @@ const SignupForm = () => {
     console.log(newUser);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    if (!newUser) {
+      return toast({
+        title: "Sign up failed. Please try again",
+      });
+    }
   }
 
   return (
