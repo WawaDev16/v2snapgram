@@ -3,7 +3,7 @@ import { Client, Account, Databases, Storage, Avatars } from "appwrite";
 export const appwriteConfig = {
   projectId: import.meta.env.VITE_APPWRITE_PROJECT_ID,
   url: import.meta.env.VITE_APPWRITE_URL,
-  databaseId: import.meta.env.VITE_APPWARITE_DATABASE_ID,
+  databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
   storage: import.meta.env.VITE_APPWRITE_STORAGE_ID,
   userCollectionId: import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
   savesCollectionId: import.meta.env.VITE_APPWRITE_SAVES_COLLECTION_ID,
