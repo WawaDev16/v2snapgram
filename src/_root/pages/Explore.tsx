@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 
 const Explore = () => {
-  const { data: posts, fetcNextPage, hasNextpage } = useGetPosts();
+  const { data: posts, fetchNextPage, hasNextpage } = useGetPosts();
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -68,7 +68,10 @@ const Explore = () => {
 
       <div className="flex flex-wrap gap-9 w-full max-w-5xl">
         {shouldShowSearchResults ? (
-          <SearchResults />
+          <SearchResults
+            isSearchFetching={isSearchFetching}
+            searchedPosts={searchedPosts}
+          />
         ) : shouldShowPosts ? (
           <p className="text-light-4 mt-10 text-center w-full">End of Posts</p>
         ) : (
