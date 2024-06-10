@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { INewPost, INewUser, IUpdatePost } from "@/types";
 import { ID, Query } from "appwrite";
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
@@ -159,6 +160,7 @@ export function getFilePreview(fileId: string) {
       "top",
       100
     );
+    if (!fileId) throw Error;
 
     return fileUrl;
   } catch (error) {

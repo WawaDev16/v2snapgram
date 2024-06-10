@@ -163,15 +163,22 @@ const SignupForm = () => {
               "Sign up"
             )}
           </Button>
-          <p className="text-small-regular text-light-2 text-center mt-2">
-            Already have an account ?
-            <Link
-              to="/sign-in"
-              className="text-primary text-primary-500 text-small-semibold ml-1"
-            >
-              Log in
-            </Link>
-          </p>
+          {isUserLoading ? (
+            <div>
+              <p>Loading ...</p>
+            </div>
+          ) : (
+            <p className="text-small-regular text-light-2 text-center mt-2">
+              Already have an account ?
+              <Link
+                to="/sign-in"
+                className="text-primary text-primary-500 text-small-semibold ml-1"
+              >
+                Log in
+              </Link>
+              {isSigningIn}
+            </p>
+          )}
         </form>
       </div>
     </Form>
