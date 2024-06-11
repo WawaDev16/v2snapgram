@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { INewPost, INewUser, IUpdatePost } from "@/types";
-import { ID, Query } from "appwrite";
+import { ID, ImageGravity, Query } from "appwrite";
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
 
 export async function createUserAccount(user: INewUser) {
@@ -157,7 +157,7 @@ export function getFilePreview(fileId: string) {
       fileId,
       2000,
       2000,
-      "top",
+      ImageGravity.Top,
       100
     );
     if (!fileId) throw Error;
